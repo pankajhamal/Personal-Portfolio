@@ -5,7 +5,7 @@ import hoverImage from "../images/home1.jpg";
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <div className="w-4xl mt-20 flex items-center justify-center cursor-pointer">
+    <div className="w-4xl mt-20 mb-10 flex items-center justify-center cursor-pointer">
       <div className="w-full flex items-center">
         <div className="w-140">
           <span className="text-4xl font-bold bg-gradient-to-l from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
