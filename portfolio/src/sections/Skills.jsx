@@ -43,7 +43,16 @@ const Skills = () => {
   },
 };
   return (
-  <div className="overflow-hidden w-4xl">
+  <div className="overflow-hidden w-4xl cursor-pointer">
+    {/* Header Section */}
+        <div className=" mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
+            My Skills
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl">
+            These are some of my skills I have developed over time.
+          </p>
+        </div>
   <div className="infinite-scroll">
     {[...Object.values(skills), ...Object.values(skills)].map(
       (skill, index) => {
