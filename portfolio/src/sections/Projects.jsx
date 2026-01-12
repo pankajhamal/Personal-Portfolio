@@ -34,8 +34,8 @@ const Projects = () => {
   ];
 
   return (
-    <div className="w-4xl min-h-screen  py-16   ">
-      <div className="max-w-7xl">
+    <div className="w-4xl py-16">
+      <div className="">
         {/* Header Section */}
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">

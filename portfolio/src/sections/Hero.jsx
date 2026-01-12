@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import defaultImage from "../images/home6.jpg";
-import hoverImage from "../images/home1.jpg";
+import defaultImage from "../images/profile.jpg";
+import hoverImage from "../images/earth.jpg";
 
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -35,12 +35,12 @@ const Hero = () => {
               <img
                 src={defaultImage}
                 alt="Profile"
-                className="absolute inset-0 w-40 h-40 rounded-full backface-hidden"
+                className="absolute inset-0 w-40 h-40 rounded-full backface-hidden object-cover object-center"
               />
               <img
                 src={hoverImage}
                 alt="Profile Hover"
-                className="absolute inset-0 w-40 h-40 rounded-full rotate-y-180 backface-hidden"
+                className="absolute inset-0 w-40 h-40 mask-auto rounded-full rotate-y-180 backface-hidden object-cover object-center"
               />
             </div>
           </div>
