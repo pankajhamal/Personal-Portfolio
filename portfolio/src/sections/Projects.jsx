@@ -1,98 +1,94 @@
 import React from "react";
-import { Github, ExternalLink } from "lucide-react";
+import { Github } from "lucide-react";
+import { Element } from "react-scroll";
+
+const projects = [
+  {
+    title: "Note API",
+    description:
+      "RESTful API with CRUD operations and JWT authentication. Designed relational schema using PostgreSQL and tested with Postman.",
+    tech: ["Node.js", "Express.js", "PostgreSQL"],
+    github: "https://github.com/pankajhamal/Notes-API",
+  },
+  {
+    title: "Movie Watchlist",
+    description:
+      "Backend service to manage watchlist with add/remove functionality and persistent storage using PostgreSQL.",
+    tech: ["Node.js", "Express.js", "PostgreSQL"],
+    github: "https://github.com/pankajhamal/Movie-Watchlist",
+  },
+  {
+    title: "Airbnb Clone",
+    description:
+      "Full-stack rental platform with authentication, protected routes, and responsive UI built with React.",
+    tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
+    github: "https://github.com/pankajhamal/Airbnb-Clone",
+  },
+  {
+    title: "Expense-Tracker",
+    description:
+      "Frontend project to track the daily expenses which helps to track income and expenses monthly",
+    tech: ["Reactjs", "Tailwind Css"],
+    github: "https://github.com/pankajhamal/Expense-Tracker",
+  },
+];
 
 const Projects = () => {
-  // Array for storing project data
-  const projectData = [
-    {
-      id: 1,
-      cardTitle: "E-Commerce Platform",
-      description:
-        "Full-stack e-commerce application with user authentication, shopping cart, and payment integration using React and Node.js",
-      imageUrl: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-      githubLink: "https://github.com",
-      tags: ["React", "Node.js", "MongoDB"],
-    },
-    {
-      id: 2,
-      cardTitle: "Task Management App",
-      description:
-        "Collaborative task management tool with real-time updates, drag-and-drop functionality, and team collaboration features",
-      imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-      githubLink: "https://github.com",
-      tags: ["React", "Firebase", "Tailwind"],
-    },
-    {
-      id: 3,
-      cardTitle: "Weather Dashboard",
-      description:
-        "Real-time weather tracking application with interactive maps, forecasts, and location-based alerts using weather APIs",
-      imageUrl: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop",
-      githubLink: "https://github.com",
-      tags: ["React", "API", "Charts"],
-    },
-  ];
-
   return (
-    <div className="w-4xl py-16">
-      <div className="">
-        {/* Header Section */}
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
-            My Projects
-          </h1>
-          <p className="text-xl text-gray-600 max-w-">
-            These are some of the projects I've built over time, showcasing my skills in web development and design.
-          </p>
-        </div>
+    <Element name="project">
+      <div className="w-full max-w-4xl mx-auto px-4 py-10 sm:py-12">
+        
+        {/* Header */}
+        <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-left">
+          Projects
+        </h1>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectData.map((project) => (
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 bg-[#f5f7fa]">
+          {projects.map((project, index) => (
             <div
-              key={project.id}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2"
+              key={index}
+              className="border rounded-lg p-3 sm:p-4 hover:shadow-md transition"
             >
-              {/* Image Container */}
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={project.imageUrl}
-                  alt={project.cardTitle}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* GitHub Link Button */}
+              {/* Title + GitHub */}
+              <div className="flex justify-between items-center mb-2 text-base sm:text-lg">
+                <h2 className="font-semibold text-left">
+                  {project.title}
+                </h2>
+
                 <a
-                  href={project.githubLink}
+                  href={project.github}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white hover:scale-110 transform"
+                  rel="noreferrer"
+                  className="text-gray-500 bg-black rounded-full p-2"
                 >
-                  <Github className="w-5 h-5 text-gray-800" />
+                  <Github size={18} className="text-gray-200" />
                 </a>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                  {project.cardTitle}
-                </h3>
-                <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
-                  {project.description}
-                </p>
+              {/* Description */}
+              <p className="text-sm sm:text-md text-gray-600 mb-3 text-left">
+                {project.description}
+              </p>
 
-                {/* View Project Button */}
-                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2 group/btn">
-                  View Project
-                  <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                </button>
+              {/* Tech */}
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((item) => (
+                  <span
+                    key={item}
+                    className="text-xs border px-2 py-1 rounded bg-gray-50"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
+
             </div>
           ))}
         </div>
+
       </div>
-    </div>
+    </Element>
   );
 };
 
